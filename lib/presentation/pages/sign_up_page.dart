@@ -1,5 +1,5 @@
 import 'package:alesha/presentation/bloc/auth/auth_bloc.dart';
-import 'package:alesha/presentation/pages/home_page.dart';
+import 'package:alesha/presentation/pages/main_page.dart';
 import 'package:alesha/presentation/pages/sign_in_page.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/gestures.dart';
@@ -33,7 +33,7 @@ class _SignupState extends State<Signup> {
       body: BlocConsumer<AuthBloc, AuthState>(
         listener: (context, state) {
           if (state is Authenticated) {
-            Navigator.pushReplacementNamed(context, Homepage.routeName);
+            Navigator.pushReplacementNamed(context, MainPage.routeName);
           }
           if (state is AuthError) {
             ScaffoldMessenger.of(context)
@@ -266,11 +266,5 @@ class _SignupState extends State<Signup> {
         ),
       );
     }
-  }
-
-  void _authenticateWithGoogle(context) {
-    BlocProvider.of<AuthBloc>(context).add(
-      GoogleSignInRequested(),
-    );
   }
 }

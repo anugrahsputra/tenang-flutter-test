@@ -1,5 +1,5 @@
 import 'package:alesha/presentation/bloc/auth/auth_bloc.dart';
-import 'package:alesha/presentation/pages/home_page.dart';
+import 'package:alesha/presentation/pages/main_page.dart';
 import 'package:alesha/presentation/pages/sign_up_page.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/gestures.dart';
@@ -32,8 +32,8 @@ class _SignInState extends State<SignIn> {
       body: BlocListener<AuthBloc, AuthState>(
         listener: (context, state) {
           if (state is Authenticated) {
-            Navigator.pushReplacement(
-                context, MaterialPageRoute(builder: (context) => Homepage()));
+            Navigator.pushReplacement(context,
+                MaterialPageRoute(builder: (context) => const MainPage()));
           }
           if (state is AuthError) {
             ScaffoldMessenger.of(context)
@@ -163,7 +163,7 @@ class _SignInState extends State<SignIn> {
     );
   }
 
-  Row loginMethod(BuildContext context) {
+  loginMethod(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
@@ -221,7 +221,7 @@ class _SignInState extends State<SignIn> {
     );
   }
 
-  SizedBox button(BuildContext context) {
+  button(BuildContext context) {
     return SizedBox(
       width: double.infinity,
       child: ElevatedButton(
@@ -248,7 +248,7 @@ class _SignInState extends State<SignIn> {
     );
   }
 
-  TextFormField passwordInput() {
+  passwordInput() {
     return TextFormField(
       obscureText: true,
       keyboardType: TextInputType.text,
@@ -283,7 +283,7 @@ class _SignInState extends State<SignIn> {
     );
   }
 
-  TextFormField emailInput() {
+  emailInput() {
     return TextFormField(
       keyboardType: TextInputType.emailAddress,
       controller: _emailController,
@@ -302,7 +302,6 @@ class _SignInState extends State<SignIn> {
           ),
         ),
         filled: true,
-
         fillColor: const Color(0xffF4F5F7),
         contentPadding: const EdgeInsets.only(
           top: 15,
