@@ -48,8 +48,16 @@ dependencies:
 
 dev_dependencies:
   flutter_lints: ^2.0.0
+  flutter_native_splash: ^2.2.16
   flutter_test:
     sdk: flutter
+
+flutter_native_splash:
+  color: "#4A80FF"
+  image: assets/logo_white.png
+  android: true
+  ios: false
+  web: false
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
